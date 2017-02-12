@@ -13,4 +13,8 @@ RSpec.describe TargetGroup, type: :model do
 
     it { is_expected.to validate_uniqueness_of(:name) }
   end
+
+  describe 'relationships' do
+    it { is_expected.to have_many(:children).class_name('TargetGroup').with_foreign_key('parent_id') }
+  end
 end
