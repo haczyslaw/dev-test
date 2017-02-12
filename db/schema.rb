@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212174637) do
+ActiveRecord::Schema.define(version: 20170212180151) do
 
   create_table "countries", force: :cascade do |t|
     t.integer  "country_code",      null: false
     t.integer  "panel_provider_id", null: false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "external_id", null: false
+    t.string   "secret_code", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "panel_providers", force: :cascade do |t|
