@@ -1,4 +1,6 @@
 class LocationGroup < ActiveRecord::Base
+  has_and_belongs_to_many :locations
+
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :country_id, presence: true

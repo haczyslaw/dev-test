@@ -15,5 +15,6 @@ RSpec.describe LocationGroup, type: :model do
 
   describe 'relationships' do
     it { is_expected.to belong_to(:country) }
+    it { is_expected.to have_and_belong_to_many(:locations) }
   end
 end
