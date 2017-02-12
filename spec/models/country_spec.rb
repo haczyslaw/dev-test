@@ -11,4 +11,9 @@ RSpec.describe Country, type: :model do
 
     it { is_expected.to validate_uniqueness_of(:country_code) }
   end
+
+  describe 'relationships' do
+    it { is_expected.to have_many(:country_targets).dependent(:delete_all) }
+    it { is_expected.to have_many(:target_groups).conditions(parent_id: nil).through(:country_targets) }
+  end
 end

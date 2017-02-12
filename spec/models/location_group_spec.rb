@@ -12,4 +12,8 @@ RSpec.describe LocationGroup, type: :model do
 
     it { is_expected.to validate_uniqueness_of(:name) }
   end
+
+  describe 'relationships' do
+    it { is_expected.to belong_to(:country) }
+  end
 end
