@@ -31,5 +31,11 @@ module DevTest
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Add Warden in the middleware stack
+    config.middleware.insert_after ActionDispatch::Flash, Warden::Manager do |manager|
+      manager.default_strategies :authentication_token
+      manager.failure_app = UnauthorizedController
+    end
   end
 end

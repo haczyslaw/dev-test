@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212232031) do
+ActiveRecord::Schema.define(version: 20170214000558) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "country_code",      null: false
@@ -73,5 +73,12 @@ ActiveRecord::Schema.define(version: 20170212232031) do
   end
 
   add_index "target_groups", ["parent_id"], name: "index_target_groups_on_parent_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "authentication_token"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
 end

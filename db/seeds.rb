@@ -18,7 +18,7 @@ def create_cities(country_code, range = Range.new(0, 6))
     Location.create(name: city, external_id: city.downcase, secret_code: city)
   end
 
-  location_group = LocationGroup.create(country: country, panel_provider: country.panel_provider)
+  location_group = LocationGroup.create(name: Time.now.to_f, country: country, panel_provider: country.panel_provider)
   location_group.locations = locations
   location_group.save
 end
@@ -35,7 +35,7 @@ def create_target_group(panel, stack_level, parent_id = nil)
   return if stack_level == 0
 
   tg = TargetGroup.create(name: "name_#{stack_level}_#{panel.code}_#{Time.now.to_f}",
-                          panel_provider_id: panel,
+                          panel_provider_id: panel.id,
                           external_id: "external_#{stack_level}",
                           secret_code: "secret_#{stack_level}",
                           parent_id: parent_id)

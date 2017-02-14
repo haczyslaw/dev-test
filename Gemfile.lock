@@ -145,6 +145,8 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    warden (1.2.3)
+      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -166,6 +168,7 @@ DEPENDENCIES
   shoulda-matchers (~> 3.1)
   spring
   sqlite3
+  warden
   web-console (~> 2.0)
 
 BUNDLED WITH
