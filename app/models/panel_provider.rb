@@ -4,4 +4,8 @@ class PanelProvider < ActiveRecord::Base
   has_many :locations, through: :location_groups
 
   validates :code, presence: true
+
+  def default_price
+    DefaultPrice.try code.to_sym
+  end
 end

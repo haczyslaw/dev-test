@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'locations/:country_code' => 'locations#show', as: :prv_locations
       get 'target_groups/:country_code' => 'target_groups#show', as: :prv_target_groups
+      post 'evaluate_target' => 'target_groups#evaluate_target', as: :evaluate_target
     end
   end
 end
